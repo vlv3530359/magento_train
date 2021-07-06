@@ -7,6 +7,7 @@ namespace Aaxis\HelloPage\Controller\Page;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\User\Model\UserFactory;
 
 class Index extends Action
 {
@@ -14,6 +15,7 @@ class Index extends Action
      * @var PageFactory $pageFactory
      */
     protected $pageFactory;
+
 
     /**
      * Index constructor.
@@ -33,11 +35,12 @@ class Index extends Action
      */
     public function execute()
     {
-        $name = ($this->getRequest()->getParam('name') ?? 'Anoymous');
+        $email = ($this->getRequest()->getParam('email') ?? 'Anoymous');
         $page = $this->pageFactory->create();
-        $block = $page->getLayout()->getBlock('hellopage_page_index');
-        $block->setData('name_parameter', $name);
+//        $block = $page->getLayout()->getBlock('hellopage_page_index');
+//        $block->setData('email_parameter', $email);
 
         return $page;
     }
+
 }

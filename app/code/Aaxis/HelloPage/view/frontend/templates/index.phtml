@@ -1,6 +1,15 @@
 <?php
-use Magento\Framework\View\Element\Template;
-/** @var Template $block */
+//http://local.magento:8080/hello/Page/index?email=vlv@aaxiscommerce.com
+/** @var \Aaxis\HelloPage\Block\Index $block */
+$customer = $block->getCustomer();
 ?>
 
-<h1>Yay <?= $block->getData('name_parameter'); ?>, my first controller in M2 works!</h1>
+<?php if(!empty($customer)) : ?>
+    <h1>Yay <?= $customer->getFirstname(); ?> <?= $customer->getLastname(); ?>, my first controller in M2 works!</h1>
+<?php else: ?>
+    <h1>Yay Anoymous, my first controller in M2 works!</h1>
+<?php endif;?>
+
+
+
+
